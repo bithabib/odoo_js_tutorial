@@ -1,5 +1,5 @@
 # odoo web rpc tutorial
-### How to read template input values examples
+### 1. How to read template input values examples
 ```js
 odoo.define('theme_address.theme', function (require) {
     "use strict";
