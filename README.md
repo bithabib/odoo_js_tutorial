@@ -46,3 +46,42 @@ return MyWidget;
     </t>
 </templates>
 ```
+
+### 2. FormController
+```js
+var FormController = require('web.FormController');
+var ExtendFormController = FormController.include({
+    saveRecord: function () {
+        var res = this._super.apply(this, arguments);
+        if(this.modelName == 'project.task'){
+            var self = this;
+            res.then(function(changedFields){
+                console.log(changedFields);
+                console.log(self.modelName);
+                self.do_notify('title', 'message');
+                // you can call a method on the server like this
+                self._rpc({
+                        model: self.modelName,
+                        method: 'search_read',
+                        fields: ['name'],
+                        context: self.context,
+                    }).then(function(result){
+                        console.log('rpc result');
+                        console.log(result);
+                    })
+            });
+        }
+        return res;
+    }
+});
+```
+
+
+
+You also need to inherit the createRecord() method the same way.
+
+A few notes:
+
+the first console log line saying: ["name"] is the value of changedFields (I only changed the name of the task before hitting Save)
+I was working on the project.task object but you can change that to sale.order :)
+The official documentation is very helpful
