@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="assets_backend" name="Odoo Tutorial" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="odoo_js_tutorial/static/src/js/popup.js"></script>
+        </xpath>
+   </template>
+
+</odoo>

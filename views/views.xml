@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- Tree View -->
+        <record id="odoo_tutorial_tree_view" model="ir.ui.view">
+            <field name="name">odoo.tutorial.tree.view</field>
+            <field name="model">odoo.tutorial</field>
+            <field name="arch" type="xml">
+                <tree string="Odoo Tutorial">
+                    <field name="name"/>
+                    <field name="number_of_videos"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="odoo_tutorial_form_view" model="ir.ui.view">
+            <field name="name">odoo.tutorial.form.view</field>
+            <field name="model">odoo.tutorial</field>
+            <field name="priority" eval="7"/>
+            <field name="arch" type="xml">
+                <form string="Odoo Tutorial Form">
+                    <sheet string="Odoo Tutorial">
+                        <div class="container m-3">
+                            <h3>Learn Odoo JS</h3>
+                        </div>
+                        <group>
+                            <field name="name"/>
+                            <field name="number_of_videos"/>
+                        </group>
+                    </sheet>
+                  
+                </form>
+            </field>
+        </record>
+
+
+        <!-- Actions -->
+        <record id="action_odoo_tutorial_view" model="ir.actions.act_window">
+            <field name="name">Odoo Tutorial</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">odoo.tutorial</field>
+            <field name="domain">[]</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="odoo_tutorial_tree_view"/>
+        </record>
+
+    </data>
+</odoo>

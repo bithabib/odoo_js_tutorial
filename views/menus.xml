@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- Top Menu -->
+        <menuitem name="Odoo Tutorial"
+            id="odoo_tutorial"
+            web_icon="popup_message_backend,static/description/icon.png"/>
+
+        
+        <!-- Menu -->
+        <menuitem name="Odoo Tutorial"
+            id="menu_odoo_tutorial"
+            action="action_odoo_tutorial_view"
+            parent="odoo_tutorial"
+            sequence="10"/>
+    </data>
+</odoo>
