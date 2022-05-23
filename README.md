@@ -76,7 +76,28 @@ var ExtendFormController = FormController.include({
 });
 ```
 
+```js
+odoo.define('odoo_js_tutorial.odoo_tutorial', function (require) {
+    'use strict';
+    console.log('popup.js loaded');
+    var FormController = require('web.FormController');
 
+    var ExtendFormController = FormController.include({
+        saveRecord: function (recordID) {
+            
+            var res = this._super.apply(this, arguments);
+            console.log(res);
+            if (this.modelName == 'odoo.tutorial'){
+                console.log('saveRecord');
+                console.log(recordID);
+                this.do_notify('Success', 'Record Saved');
+            }
+            return res;
+        }
+    });
+
+});
+```
 
 You also need to inherit the createRecord() method the same way.
 
